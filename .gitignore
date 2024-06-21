@@ -1,0 +1,5 @@
+build/
+.sysroot
+.device
+.env
+CMakeLists.txt.user
