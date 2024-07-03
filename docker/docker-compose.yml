@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  dockerd:
+    image: docker:25.0-dind 
+    command: ["dockerd", "-H", "unix:///var/run/docker/docker.sock"] 
+    volumes:
+      - ${DOCKER_DATA_ROOT}:/var/lib/docker
+      - ${DOCKER_RUN_ROOT}:/var/run/docker
+    privileged: true
+
+  sotactl:
+      build:
+        context: .
+        dockerfile: Dockerfile
+
+      image: sotactl:latest
+      volumes:
+        - "${PWD}:${PWD}"
+        - ${DOCKER_RUN_ROOT}:/var/run/docker
+        - ${SOTA_DIR}:/var/sota
+      working_dir: "${PWD}"
+      hostname: device
+      user: "root"
+      environment:
+        - FACTORY=${FACTORY}
+        - AUTH_TOKEN=${AUTH_TOKEN}
+        - DOCKER_HOST=unix:///var/run/docker/docker.sock
+        - SOTA_DIR=/var/sota
+        - AKLITE_CONFIG_DIR=/var/sota
+        - DOCKER_CONFIG=/usr/lib/docker
+      depends_on:
+      - dockerd
