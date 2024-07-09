@@ -28,7 +28,7 @@ int main(int argc, char** argv) {
   std::string cmd_name = "daemon";
 
   if (argc > 1) {
-    cmd_name = {argv[1]};
+    cmd_name = argv[1];
     if (cmd_name == "--help" || cmd_name == "-h") {
       print_usage();
       exit(EXIT_SUCCESS);
