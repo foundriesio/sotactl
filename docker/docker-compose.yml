@@ -33,6 +33,8 @@ services:
         - AUTH_TOKEN=${AUTH_TOKEN}
         - DOCKER_HOST=unix:///var/run/docker/docker.sock
         - DOCKER_CONFIG=/usr/lib/docker
+        - CXX=clang++
+        - CC=clang
       depends_on:
       - dockerd
 
