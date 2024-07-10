@@ -12,6 +12,8 @@ services:
   sotactl:
       build:
         context: .
+        args:
+          AKLITE_VER: master
         dockerfile: Dockerfile
 
       image: sotactl:latest
