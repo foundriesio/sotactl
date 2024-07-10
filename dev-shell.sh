@@ -11,4 +11,4 @@ down() {
 trap down EXIT
 
 mkdir -p $PWD/.device/sysroot
-docker compose --env-file=$PWD/docker/.env.dev -f $PWD/docker/docker-compose.yml run -e DEV_USER=$(id -u) -e DEV_GROUP=$(id -g) sotactl
+docker compose --env-file=$PWD/docker/.env.dev -f $PWD/docker/docker-compose.yml run -e DEV_USER=$(id -u) -e DEV_GROUP=$(id -g) sotactl $@
