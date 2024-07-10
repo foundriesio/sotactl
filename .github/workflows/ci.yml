@@ -1,0 +1,17 @@
+name: sotactl CI tests
+on:
+  push:
+    pull_request:
+      branches:
+        - main
+
+jobs:
+  sotactl:
+    name: Build dev container and sota client
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: build-dev-env
+        run: ./dev-shell.sh true
+      - name: build sotactl
+        run: ./dev-shell.sh make
