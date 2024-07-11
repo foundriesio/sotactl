@@ -12,6 +12,8 @@ Run `./dev-shell.sh`. The initial/first run may take some time as necessary cont
 
 ## Register/Unregister device
 Inside the development container, run `make register` or `make unregister` to register or unregister a device, respectively.
+Override the `DEVICE_TAG` environment variable if you need to register a device and set its tag to a non-default value (`main`).
+For example, `DEVICE_TAG=devel make register`.
 
 ## Build your SOTA client
 Run `make` to build your SOTA (Software Over-The-Air) client.

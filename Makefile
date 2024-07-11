@@ -10,6 +10,7 @@ SOTA_DIR = /var/sota
 
 DEVICE_FACTORY ?= ${FACTORY}
 DEVICE_TOKEN ?= ${AUTH_TOKEN}
+DEVICE_TAG ?= main
 
 .PHONY: config build
 
@@ -26,7 +27,7 @@ ${SOTA_DIR}:
 	mkdir -p ${SOTA_DIR}/compose-apps
 
 register: ${SOTA_DIR}
-	DEVICE_FACTORY=${DEVICE_FACTORY} lmp-device-register -T ${DEVICE_TOKEN} --start-daemon 0 -d ${SOTA_DIR} -t master
+	DEVICE_FACTORY=${DEVICE_FACTORY} lmp-device-register -T ${DEVICE_TOKEN} --start-daemon 0 -d ${SOTA_DIR} -t ${DEVICE_TAG}
 
 unregister:
 	@rm -rf ${SOTA_DIR}/sql.db
