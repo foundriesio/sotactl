@@ -71,7 +71,7 @@ static void print_status(aklite::cli::StatusCode ret) {
 
     // Possible return codes for install command
     case aklite::cli::StatusCode::InstallAppsNeedFinalization:
-      std::cout << "SUCCESS: Execute `custom-sota-client run` command to finalize installation";
+      std::cout << "SUCCESS: Execute `sotactl run` command to finalize installation";
       break;
     case aklite::cli::StatusCode::InstallNeedsRebootForBootFw:
       std::cout << "FAILURE: Reboot is required before installing the target";

@@ -16,7 +16,7 @@ static std::vector<Cmd::Ptr> cmds{
 };
 
 static void print_usage() {
-  std::cout << "Usage:\n\t custom-sota-client [cmd] [options]\nSupported commands: ";
+  std::cout << "Usage:\n\t sotactl [cmd] [options]\nSupported commands: ";
   for (const auto& cmd : cmds) {
     std::cout << cmd->name() << " ";
   }
@@ -61,7 +61,7 @@ int main(int argc, char** argv) {
   }
   auto print_usage = [](const std::string& cmd, const std::vector<std::string>& pos_opts,
                         const po::options_description& opts) {
-    std::cout << "custom-sota-client " << cmd;
+    std::cout << "sotactl " << cmd;
     for (const auto& option : pos_opts) {
       std::cout << " [" + option + "]";
     }
