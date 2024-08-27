@@ -9,7 +9,7 @@ FROM foundries/aklite-dev as aklite
 
 ARG CCACHE_DIR=${PWD}/.ccache
 ENV CCACHE_DIR =${CCACHE_DIR}
-ARG AKLITE_VER=mp-93
+ARG AKLITE_VER=master
 ENV AKLITE_VER=${AKLITE_VER}
 
 WORKDIR /aklite
