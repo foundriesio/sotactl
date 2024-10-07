@@ -11,7 +11,7 @@ services:
 
   sotactl:
       build:
-        context: .
+        context: ${SOTACTL_DOCKER_DIR}
         args:
           AKLITE_VER: master
         dockerfile: Dockerfile
