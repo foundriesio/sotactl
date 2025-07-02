@@ -48,12 +48,12 @@ fi
 # Initialize default toml config
 sysroot_cfg=/usr/lib/sota/conf.d/z-90-sysroot.toml
 if [ ! -f $sysroot_cfg ]; then
-    echo "[pacman]\nbooted = 0\nos = lmp" > $sysroot_cfg
+    echo "[pacman]\nbooted = 0\nos = \"lmp\"" > $sysroot_cfg
 fi
 
 bootloader_cfg=/usr/lib/sota/conf.d/z-91-bootloader.toml
 if [ ! -f $bootloader_cfg ]; then
-    echo "[bootloader]\nreboot_command = /usr/bin/true" > $bootloader_cfg
+    echo "[bootloader]\nreboot_command = \"/usr/bin/true\"" > $bootloader_cfg
 fi
 
 # Set directory used for reboot indication, the `need_reboot` file is created under this dir
